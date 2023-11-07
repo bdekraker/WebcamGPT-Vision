@@ -26,7 +26,7 @@ To install WebcamGPT-Vision, follow these steps:
 
 1. Clone the repository to your local machine or server:
    ```sh
-   git clone https://github.com/yourusername/webcamgpt-vision.git
+   git clone https://github.com/bdekraker/webcamgpt-vision.git
    ```
 2. Replace `YOUR_DEFAULT_API_KEY` in the `process_image.php` file with your actual OpenAI API key.
 3. Upload the code to your PHP-enabled server.
