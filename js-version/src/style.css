@@ -1,0 +1,175 @@
+body {
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding-top: 20px;
+            background-color: #121212; /* Dark mode background */
+            color: #ffffff; /* Light text for dark mode */
+            height: 100vh;
+            margin: 0;
+        }
+        #webcam-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-right: 20px; /* Adjust as needed */
+            background-color: #1e1e1e; /* Dark background for elements */
+            padding: 10px;
+            border-radius: 8px; /* Rounded corners */
+        }
+        #webcam {
+            border-radius: 8px; /* Rounded corners for webcam */
+        }
+        #chatbox {
+            height: 480px; /* Match webcam height */
+            overflow-y: auto;
+            border: 1px solid #333333; /* Darker border for elements */
+            padding: 10px;
+            width: 320px; /* Adjust as needed */
+            margin-left: 20px; /* Adjust as needed */
+            background-color: #1e1e1e; /* Dark background for elements */
+            border-radius: 8px; /* Rounded corners */
+        }
+        #capture {
+            width: 150px;
+            height: 50px;
+            margin-top: 20px;
+            background-color: #333333; /* Dark button background */
+            color: #ffffff; /* Light button text */
+            border: none;
+            border-radius: 8px; /* Rounded corners for button */
+            cursor: pointer;
+        }
+        #capture:hover {
+            background-color: #454545; /* Lighter background on hover */
+        }
+        #chatbox .user-message:nth-child(odd),
+#chatbox .assistant-message:nth-child(even) {
+    background-color: #2a2a2a; /* Darker background for every other message */
+}
+
+#chatbox .user-message,
+#chatbox .assistant-message {
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+#chatbox .timestamp {
+    font-size: 0.8em;
+    color: #777;
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
+}
+
+ /* New styles for the layout */
+ #content-container {
+            display: flex;
+            flex-direction: row; /* Align children horizontally */
+            justify-content: start; /* Align children to the start of the container */
+            align-items: flex-start; /* Align children to the start vertically */
+            max-width: 1200px; /* Max width of the container */
+            margin: 0 auto; /* Center the container */
+        }
+
+        /* Styles for the processing animation */
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .loader {
+            border: 6px solid #f3f3f3; /* Light grey */
+            border-top: 6px solid #3498db; /* Blue */
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 2s linear infinite;
+            margin: auto;
+        }
+
+        #api-calls-counter {
+            margin-top: 10px;
+        }
+        #footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    background-color: #1e1e1e; /* Match the dark theme */
+    padding: 10px 0; /* Padding for aesthetics */
+    color: #ffffff; /* Text color for visibility */
+}
+/* Hide the switch camera button by default */
+#switch-camera {
+    display: none;
+    /* Styling similar to the capture button */
+    width: 100%;
+    height: 60px;
+    margin-top: 10px;
+    background-color: #333333;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+/* Media query for mobile screens */
+@media (max-width: 768px) {
+    #switch-camera {
+        display: block; /* Show the button */
+    }
+    body {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    #content-container {
+        flex-direction: column;
+        align-items: stretch;
+        margin: 0;
+    }
+    #webcam-container {
+        width: 100%;
+        margin-right: 0; /* Remove margin since it's now a column layout */
+        max-height: 50%;
+    }
+    #webcam {
+        width: 100%; /* Full width */
+        height: 200px;
+
+    }
+    #capture {
+        width: 100%; /* Full width to make it easily tappable */
+        height: 60px; /* Larger button for easy tapping */
+        font-size: 20px; /* Larger font size */
+        margin-top: 10px;
+    }
+    #chatbox {
+        height: 250px;
+        width: 100%; /* Full width */
+        margin-left: 0; /* Remove margin since it's now below the webcam */
+        margin-top: 10px; /* Add some space between the capture button and chatbox */
+      
+    }
+    #footer {
+        position: relative; /* Footer should flow in the normal document flow in mobile layout */
+        width: 100%;
+        padding: 20px 0; /* Increase padding for better visibility */
+    }
+}
+
+/* Styles for links in the footer to remain white in all states */
+#footer a,
+#footer a:visited,
+#footer a:hover,
+#footer a:active {
+    color: #ffffff; /* White text for all link states */
+    text-decoration: none; /* Optional: Removes underline from links */
+}
+
+ 
