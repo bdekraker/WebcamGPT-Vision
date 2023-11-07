@@ -17,6 +17,7 @@ Before you begin, ensure you have met the following requirements:
 
 - You have a modern web browser.
 - You have a server with PHP support for running the PHP script.
+- cURL is enabled on your server
 - You have obtained an API key from OpenAI for GPT-4 Vision API usage.
 
 ## Installation
