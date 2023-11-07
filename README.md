@@ -2,7 +2,7 @@
 
 WebcamGPT-Vision is a lightweight web application that enables users to process images from their webcam using OpenAI's GPT-4 Vision API. The application captures images from the user's webcam, sends them to the GPT-4 Vision API, and displays the descriptive results. 
 
-This project is built using HTML, JavaScript, PHP, and now includes a Node.js version.
+There are three versions of this project: PHP, Node.js, and Python / Flask.
 
 https://github.com/bdekraker/WebcamGPT-Vision/assets/81277770/9e5ed14b-bb8e-4475-9921-471b9d42d009
 
@@ -20,11 +20,12 @@ Before you begin, ensure you have met the following requirements:
 - You have a modern web browser.
 - For the PHP version: You have a server with PHP support and cURL enabled.
 - For the Node.js version: You have Node.js and npm installed.
+- For the Python/Flask version: You have Python and Flask installed.
 - You have obtained an API key from OpenAI for GPT-4 Vision API usage.
 
 ## Installation
 
-To install WebcamGPT-Vision, follow these steps for the PHP version or the Node.js version:
+To install WebcamGPT-Vision, follow these steps for the correct version (all are included):
 
 ### PHP Version
 
@@ -51,6 +52,22 @@ To install WebcamGPT-Vision, follow these steps for the PHP version or the Node.
    ```
 5. Start the server with `node server.js`.
 6. Access the application through your web browser at `http://localhost:3000` (or the port you configured).
+
+   
+### Python/Flask Version
+
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/bdekraker/webcamgpt-vision.git
+   ```
+2. Navigate to the `python-flask-version` directory.
+3. Run `pip install -r requirements.txt` to install the dependencies.
+4. Set your OpenAI API key as an environment variable:
+   ```sh
+   export YOUR_DEFAULT_API_KEY='your_actual_api_key_here'
+   ```
+5. Start the Flask server with `python app.py`.
+6. Access the application through your web browser at `http://localhost:5000`.
 
 ## Usage
 
