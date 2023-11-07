@@ -60,7 +60,7 @@ To install WebcamGPT-Vision, follow these steps for the correct version (all are
    ```sh
    git clone https://github.com/bdekraker/webcamgpt-vision.git
    ```
-2. Navigate to the `python-flask-version` directory.
+2. Navigate to the `python-version` directory.
 3. Run `pip install -r requirements.txt` to install the dependencies.
 4. Set your OpenAI API key as an environment variable:
    ```sh
