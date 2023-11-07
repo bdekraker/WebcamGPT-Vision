@@ -1,2 +1,4 @@
 # WebcamGPT-Vision
-Lightweight GPT-4 Vision processing over the Webcam
+Lightweight GPT-4 Vision processing over the Webcam.
+
+HTML, JS, PHP.
