@@ -1,5 +1,7 @@
 # WebcamGPT-Vision
 
+https://github.com/bdekraker/WebcamGPT-Vision/assets/81277770/9e5ed14b-bb8e-4475-9921-471b9d42d009
+
 WebcamGPT-Vision is a lightweight web application that enables users to process images from their webcam using OpenAI's GPT-4 Vision API. The application captures images from the user's webcam, sends them to the GPT-4 Vision API, and displays the descriptive results. This project is built using HTML, JavaScript, and PHP.
 
 ## Features
