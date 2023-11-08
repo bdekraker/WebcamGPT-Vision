@@ -33,20 +33,24 @@ function processImage(base64Image) {
         },
         body: JSON.stringify({ image: base64Image })
     })
-    .then(response => response.json())
-    .then(handleResponse)
-    .catch(handleError);
+        .then(response => response.json())
+        .then(handleResponse)
+        .catch(handleError);
 }
 
 // Handle the server response
 function handleResponse(data) {
     toggleLoader(false); // Hide the loader
-    if(data.error) {
+    if (data.error) {
         console.error(data.error);
         appendToChatbox(`Error: ${data.error}`, true);
         return;
     }
-    appendToChatbox(data.choices[0].message.content);
+
+    // Assuming the image URL is part of the response data
+    const imageURL = data.imageUrl;
+
+    appendToChatbox(data.choices[0].message.content, false, imageURL);
 }
 
 // Handle any errors during fetch
@@ -62,16 +66,36 @@ function toggleLoader(show) {
 }
 
 // Append messages to the chatbox
-function appendToChatbox(message, isUserMessage = false) {
+function appendToChatbox(message, isUserMessage = false, imageURL = null) {
     const chatbox = document.getElementById('chatbox');
     const messageElement = document.createElement('div');
     const timestamp = new Date().toLocaleTimeString(); // Get the current time as a string
-    
+
     // Assign different classes based on the sender for CSS styling
     messageElement.className = isUserMessage ? 'user-message' : 'assistant-message';
 
-    messageElement.innerHTML = `<div class="message-content">${message}</div>
-                                <div class="timestamp">${timestamp}</div>`;
+    const contentDiv = document.createElement('div');
+    contentDiv.className = 'message-content';
+
+    // Add the text message
+    contentDiv.innerHTML = message;
+
+    // Create an image element if imageURL is provided
+    if (imageURL) {
+        const imageElement = document.createElement('img');
+        imageElement.src = imageURL; // Set the image source
+        contentDiv.appendChild(imageElement);
+    }
+
+    // Append content to the message element
+    messageElement.appendChild(contentDiv);
+
+    // Add the timestamp
+    const timestampDiv = document.createElement('div');
+    timestampDiv.className = 'timestamp';
+    timestampDiv.textContent = timestamp;
+    messageElement.appendChild(timestampDiv);
+
     if (chatbox.firstChild) {
         chatbox.insertBefore(messageElement, chatbox.firstChild);
     } else {
@@ -90,12 +114,12 @@ function switchCamera() {
         const constraints = {
             video: { facingMode: (usingFrontCamera ? 'user' : 'environment') }
         };
-        
+
         // Stop any previous stream
         if (video.srcObject) {
             video.srcObject.getTracks().forEach(track => track.stop());
         }
-        
+
         // Start a new stream with the new constraints
         navigator.mediaDevices.getUserMedia(constraints)
             .then(stream => {
