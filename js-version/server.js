@@ -14,6 +14,7 @@ const app = express();
 // Enable Express to parse JSON bodies in requests, which is necessary for
 // processing the incoming JSON data.
 app.use(express.json());
+app.use(express.static('src'));
 
 // Define the port on which the server will listen. It uses the PORT environment
 // variable if provided, otherwise it defaults to 3000.
