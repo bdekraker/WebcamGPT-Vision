@@ -3,11 +3,14 @@ import requests
 import os
 import base64
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='', static_folder='src')
 
 # Replace 'YOUR_DEFAULT_API_KEY' with the name of the environment variable
 DEFAULT_API_KEY = os.environ.get('YOUR_DEFAULT_API_KEY', 'YOUR_DEFAULT_API_KEY')
 
+@app.route('/')
+def index():
+    return app.send_static_file('index.html')
 
 @app.route('/process_image', methods=['POST'])
 def process_image():
