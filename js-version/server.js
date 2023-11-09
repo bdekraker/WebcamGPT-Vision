@@ -77,9 +77,13 @@ app.post('/process_image', async (req, res) => {
             headers: headers,
             body: JSON.stringify(payload)
         });
-        
+
         // Parse the JSON response from the OpenAI API.
         const data = await response.json();
+
+        // Sending back the original image
+        data.imageUrl = `data:image/jpeg;base64,${base64Image}`;
+
         // Send the parsed data back to the client with a 200 OK status.
         res.status(200).json(data);
     } catch (error) {
