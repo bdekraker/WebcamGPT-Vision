@@ -1,12 +1,18 @@
-from flask import Flask, request, jsonify
-import requests
 import os
-import base64
 
-app = Flask(__name__)
+import requests
+from flask import Flask, request, jsonify
+
+app = Flask(__name__, static_folder='src', static_url_path='/')
 
 # Replace 'YOUR_DEFAULT_API_KEY' with the name of the environment variable
 DEFAULT_API_KEY = os.environ.get('YOUR_DEFAULT_API_KEY', 'YOUR_DEFAULT_API_KEY')
+
+
+@app.route('/')
+def index():
+    """Return the index.html page."""
+    return app.send_static_file('index.html')
 
 
 @app.route('/process_image', methods=['POST'])

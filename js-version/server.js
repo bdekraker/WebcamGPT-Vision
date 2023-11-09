@@ -5,6 +5,9 @@ require('dotenv').config();
 // Import the express module to create an HTTP server for our API.
 const express = require('express');
 
+// CORS
+const cors = require('cors');
+
 // Import the node-fetch module to make HTTP requests (like the one to OpenAI's API).
 const fetch = require('node-fetch');
 
@@ -14,6 +17,7 @@ const app = express();
 // Enable Express to parse JSON bodies in requests, which is necessary for
 // processing the incoming JSON data.
 app.use(express.json());
+app.use(cors());
 app.use(express.static('src'));
 
 // Define the port on which the server will listen. It uses the PORT environment
